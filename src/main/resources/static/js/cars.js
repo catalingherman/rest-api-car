@@ -39,14 +39,9 @@ $("#add").on("click", () => {
     window.location.href = "/add";
 });
 
-$("#cars-placeholder").on("click", ".update-car", () => {
-    let id = $(".car-id").val();
-    window.location.href = `/update?uid=${id}`;
-});
-
-$("#cars-placeholder").on("click", ".delete-car", () => {
+$("#cars-placeholder").on("click", ".delete-car", function() {
     if(confirm("Click okay to confirm car delete request")) {
-        let id = $(".car-id").val();
+        let id = this.parentNode.parentElement.querySelector(".car-id").value;
         $.ajax({
             url: `/rest/car/delete/${id}`,
             method: "DELETE",
@@ -60,4 +55,9 @@ $("#cars-placeholder").on("click", ".delete-car", () => {
             }
         });
     }
+});
+
+$("#cars-placeholder").on("click", ".update-car", function() {
+    let id = this.parentNode.parentElement.querySelector(".car-id").value;
+    window.location.href = `/update?id=${id}`;
 });

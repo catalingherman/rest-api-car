@@ -99,6 +99,6 @@ public class CarService {
     }
 
     private boolean validateName(String str) {
-        return !str.isEmpty() && !str.contains(" ") && str.length() >= 1 && !str.matches(".*\\d.*");
+        return !str.isEmpty() && !str.matches(".*\\d.*");
     }
 }

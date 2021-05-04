@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    const id = new URL(document.URL).searchParams.get("uid");
+    const id = new URL(document.URL).searchParams.get("id");
     $.ajax({
         url: `/rest/car/${id}`,
         method: "GET",
@@ -19,7 +19,7 @@ function fillInputs(data) {
 }
 
 $("#update-car-submit").on("click", () => {
-    const id = new URL(document.URL).searchParams.get("uid");
+    const id = new URL(document.URL).searchParams.get("id");
     $.ajax({
         url: `/rest/car/update/${id}`,
         method: "PUT",
